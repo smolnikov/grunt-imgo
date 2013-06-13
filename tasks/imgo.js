@@ -9,8 +9,8 @@
 module.exports = function(grunt) {
 	'use strict';
 
-	var fs = require('fs'),
-		path = require('path');
+	var fs = require('fs');
+	var path = require('path');
 
 	grunt.registerMultiTask('imgo', 'Optimize images using imgo', function() {
 		this.requiresConfig([ this.name, this.target, 'src' ].join('.'));
@@ -24,9 +24,8 @@ module.exports = function(grunt) {
 		}
 
 		grunt.util.async.forEach(this.filesSrc, function(file, nextFile) {
-			
-			if(params.dest)
-			{
+
+			if (params.dest) {
 				var newFile = path.join(params.dest, path.basename(file));
 				grunt.file.copy(file, newFile);
 				file = newFile;
